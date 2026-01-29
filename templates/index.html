@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Fraud Detection System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- LEFT : ILLUSTRATION -->
+    <div class="left">
+        <img src="{{ url_for('static', filename='upi-logo1.png') }}"
+             alt="UPI Fraud Illustration">
+    </div>
+
+    <!-- RIGHT : FORM -->
+    <div class="right">
+        <div class="card">
+
+            <h2>UPI Fraud Detection System</h2>
+
+            <form action="/predict" method="post">
+
+                <label>Transaction Hour:</label>
+                <input type="number" name="trans_hour" min="0" max="23" required>
+
+                <label>Transaction Day:</label>
+                <input type="number" name="trans_day" min="1" max="31" required>
+
+                <label>Transaction Month:</label>
+                <input type="number" name="trans_month" min="1" max="12" required>
+
+                <label>Transaction Amount (₹):</label>
+                <input type="number" name="trans_amount" required>
+
+                <label>Customer Age:</label>
+                <input type="number" name="age" min="10" max="100" required>
+
+                <button type="submit">Predict</button>
+            </form>
+
+            {% if result %}
+                <div class="prediction {{ 'safe' if 'Safe' in result else 'fraud' }}">
+                    {{ result }}
+                </div>
+            {% endif %}
+
+
+
+            <p class="footer">
+                ML Project by Abhishek |
+                <a href="#" target="_blank">View Code on GitHub</a>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

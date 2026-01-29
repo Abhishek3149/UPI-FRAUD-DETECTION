@@ -1,0 +1,159 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* PAGE */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f6d365, #fda085);
+}
+
+/* MAIN LAYOUT */
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* LEFT IMAGE SECTION */
+.left {
+    flex: 1.4;                     /* Balanced like reference */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 40px;
+}
+
+.left img {
+    max-width: 720px;              /* Prevent image from overpowering */
+    width: 100%;
+    height: auto;
+}
+
+/* RIGHT FORM SECTION */
+.right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* FORM CARD */
+.card {
+    background: #ffffff;
+    width: 520px;
+    padding: 45px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* TITLE */
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* FORM */
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 18px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    margin-top: 28px;
+    padding: 14px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* PREDICTION RESULT */
+.prediction {
+    margin-top: 25px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.prediction.safe {
+    background: linear-gradient(135deg, #28a745, #3bcf6b);
+}
+
+.prediction.fraud {
+    background: linear-gradient(135deg, #e74c3c, #ff6b6b);
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 22px;
+    font-size: 0.8em;
+    text-align: center;
+    color: #555;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .left {
+        padding: 20px;
+    }
+
+    .left img {
+        max-width: 90%;
+    }
+
+    .card {
+        width: 90%;
+        margin-bottom: 30px;
+    }
+}
